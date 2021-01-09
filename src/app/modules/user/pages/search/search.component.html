@@ -34,11 +34,11 @@
 <div class="content">
     <div class="container-fluid">
 
-        <div class="row main-content">
-            <div stickySidebar containerSelector=".main-content" innerWrapperSelector=".sidebar__inner" class="col-md-12 col-lg-4 col-xl-3 theiaStickySidebar">
-                <div class="sidebar__inner">
+        <div class="row">
+            <div class="col-md-12 col-lg-4 col-xl-3 theiaStickySidebar">
+                <div class="w-100 mb-4 mb-md-0" stickySidebar containerSelector=".theiaStickySidebar" innerWrapperSelector=".sidebar__inner">
                     <!-- Search Filter -->
-                    <div class="card search-filter">
+                    <div class="card search-filter sidebar__inner">
                         <div class="card-header">
                             <h4 class="card-title mb-0">Search Filter</h4>
                         </div>
@@ -109,11 +109,10 @@
                     </div>
                     <!-- /Search Filter -->
                 </div>
-                
             </div>
 
             
-            <div class="col-md-12 col-lg-8 col-xl-9">
+            <div class="col-md-12 col-lg-8 col-xl-9" mScrollSpy>
 
                 <!-- Doctor Widget -->
                 <div class="card">

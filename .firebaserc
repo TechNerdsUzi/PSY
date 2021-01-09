@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "psyenligne-c1f9d": {
+      "hosting": {
+        "Psy": [
+          "psyenligne-c1f9d"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "psyenligne-c1f9d"
+  }
+}
