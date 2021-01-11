@@ -23,7 +23,7 @@ export class ForgetPasswordComponent implements OnInit {
   forgetPassword(formValues) {
     this.showError = false;
     if (this.forgetForm.valid) {
-
+      this.authService.userResetPassword(formValues.email);
     } else {
       this.showError = true;
     }
