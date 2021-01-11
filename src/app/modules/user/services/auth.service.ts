@@ -11,11 +11,19 @@ export class AuthService {
   constructor(private fireAuth: AngularFireAuth, private router: Router) { }
 
   signInWithGoogle() {
-    this.fireAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    this.fireAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(() => {
+      this.router.navigate(['/']);
+    }, (err) => {
+      alert(err.message);
+    });
   }
 
   signInWithFacebook() {
-    this.fireAuth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+    this.fireAuth.signInWithPopup(new firebase.auth.FacebookAuthProvider()).then(() => {
+      this.router.navigate(['/']);
+    }, (err) => {
+      alert(err.message);
+    });
   }
 
   SignInWithEmailPassword(email, password) {
