@@ -15,14 +15,17 @@
                             <div class="login-header">
                                 <h3>Login <span>Doccure</span></h3>
                             </div>
-                            <form action="index.html">
+                            <form [formGroup]="loginForm" (ngSubmit)="loginWithEmailPassword(loginForm.value)">
                                 <div class="form-group form-focus">
-                                    <input type="email" class="form-control floating">
+                                    <input type="email" class="form-control floating" formControlName="email">
                                     <label class="focus-label">Email</label>
+                                    <small *ngIf="showError && email.hasError('required')"><b>Email Required</b></small>
+                                    <small *ngIf="showError && email.hasError('email')"><b>Please Insert Valid Email</b></small>
                                 </div>
                                 <div class="form-group form-focus">
-                                    <input type="password" class="form-control floating">
+                                    <input type="password" class="form-control floating" formControlName="password">
                                     <label class="focus-label">Password</label>
+                                    <small *ngIf="showError && password.hasError('required')"><b>Password Required</b></small>
                                 </div>
                                 <div class="text-right">
                                     <a class="forgot-link" href="forgot-password.html">Forgot Password ?</a>
@@ -34,10 +37,10 @@
                                 </div>
                                 <div class="row form-row social-login">
                                     <div class="col-6">
-                                        <a href="#" class="btn btn-facebook btn-block"><i class="fab fa-facebook-f mr-1"></i> Login</a>
+                                        <button type="button" class="btn btn-facebook btn-block" (click)="loginWithFacebook()"><i class="fab fa-facebook-f mr-1"></i> Login</button>
                                     </div>
                                     <div class="col-6">
-                                        <a href="#" class="btn btn-google btn-block"><i class="fab fa-google mr-1"></i> Login</a>
+                                        <button type="button" class="btn btn-google btn-block" (click)="loginWithGoogle()"><i class="fab fa-google mr-1"></i> Login</button>
                                     </div>
                                 </div>
                                 <div class="text-center dont-have">Don’t have an account? <a routerLink="/register">Register</a></div>
@@ -51,6 +54,5 @@
         </div>
 
     </div>
-
 </div>
 <!-- /Page Content -->
