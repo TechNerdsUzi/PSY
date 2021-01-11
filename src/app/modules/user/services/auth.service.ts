@@ -35,6 +35,14 @@ export class AuthService {
     });
   }
 
+  userResetPassword(email) {
+    this.fireAuth.sendPasswordResetEmail(email).then(() => {
+      alert("Email send check you email");
+    }, (err) => {
+      alert(err.message);
+    });
+  }
+
   logout() {
     this.fireAuth.signOut();
   }
