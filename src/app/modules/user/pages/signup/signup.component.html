@@ -21,21 +21,30 @@
                             </div>
                             </ng-template>
                             <!-- Register Form -->
-                            <form action="doctor-dashboard.html">
+                            <form [formGroup]="signupForm" (ngSubmit)="signupFormSubmit(signupForm.value)">
                                 <div class="form-group form-focus">
-                                    <input type="text" class="form-control floating">
+                                    <input type="text" class="form-control floating" formControlName="name">
                                     <label class="focus-label">Name</label>
+                                    <small *ngIf="showError && name.hasError('required')"><b>Name is required</b></small>
                                 </div>
                                 <div class="form-group form-focus">
-                                    <input type="text" class="form-control floating">
+                                    <input type="email" class="form-control floating" formControlName="email">
+                                    <label class="focus-label">Email</label>
+                                    <small *ngIf="showError && email.hasError('required')"><b>Email is required</b></small>
+                                    <small *ngIf="showError && email.hasError('email')"><b>Please Insert Valid Email</b></small>
+                                </div>
+                                <div class="form-group form-focus">
+                                    <input type="text" class="form-control floating" formControlName="mobile">
                                     <label class="focus-label">Mobile Number</label>
+                                    <small *ngIf="showError && mobile.hasError('required')"><b>Mobile Number is required</b></small>
                                 </div>
                                 <div class="form-group form-focus">
-                                    <input type="password" class="form-control floating">
+                                    <input type="password" class="form-control floating" formControlName="password">
                                     <label class="focus-label">Create Password</label>
+                                    <small *ngIf="showError && password.hasError('required')"><b>Password is required</b></small>
                                 </div>
                                 <div class="text-right">
-                                    <a class="forgot-link" href="login.html">Already have an account?</a>
+                                    <a class="forgot-link" [routerLink]="'/login'">Already have an account?</a>
                                 </div>
                                 <button class="btn btn-primary btn-block btn-lg login-btn" type="submit">Signup</button>
                                 <div class="login-or">
@@ -44,10 +53,10 @@
                                 </div>
                                 <div class="row form-row social-login">
                                     <div class="col-6">
-                                        <a href="#" class="btn btn-facebook btn-block"><i class="fab fa-facebook-f mr-1"></i> Login</a>
+                                        <button type="button" (click)="loginWithFacebook()" class="btn btn-facebook btn-block"><i class="fab fa-facebook-f mr-1"></i> Login</button>
                                     </div>
                                     <div class="col-6">
-                                        <a href="#" class="btn btn-google btn-block"><i class="fab fa-google mr-1"></i> Login</a>
+                                        <button type="button" (click)="loginWithGoogle()" class="btn btn-google btn-block"><i class="fab fa-google mr-1"></i> Login</button>
                                     </div>
                                 </div>
                             </form>
