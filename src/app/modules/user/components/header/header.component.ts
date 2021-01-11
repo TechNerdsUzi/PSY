@@ -1,5 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import * as $ from 'jquery';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -8,7 +10,7 @@ import * as $ from 'jquery';
 export class HeaderComponent implements OnInit, AfterViewInit {
 
   drawer: boolean = false;
-  constructor() { }
+  constructor(public fireAuth: AngularFireAuth, private authService: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -32,6 +34,10 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   drawerToggle() {
     this.drawer = this.drawer ? false : true;
+  }
+
+  logout() {
+    this.authService.logout();
   }
 
 }
