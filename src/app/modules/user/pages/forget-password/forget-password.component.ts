@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import * as $ from 'jquery';
 @Component({
   selector: 'app-forget-password',
   templateUrl: './forget-password.component.html',
   styleUrls: ['./forget-password.component.css']
 })
-export class ForgetPasswordComponent implements OnInit {
+export class ForgetPasswordComponent implements OnInit, AfterViewInit {
 
   forgetForm: FormGroup = new FormGroup({
     email: new FormControl(null, Validators.compose([Validators.required, Validators.email]))
@@ -18,6 +19,14 @@ export class ForgetPasswordComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit(): void {
+    if ($('.floating').length > 0) {
+      $('.floating').on('focus blur', function (e) {
+        $(this).parents('.form-focus').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
+      }).trigger('blur');
+    }
   }
 
   forgetPassword(formValues) {
