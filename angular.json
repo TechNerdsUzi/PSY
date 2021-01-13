@@ -29,6 +29,7 @@
               "src/assets/plugins/fontawesome/css/all.min.css",
               "node_modules/bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.min.css",
               "node_modules/select2/dist/css/select2.min.css",
+              "node_modules/daterangepicker/daterangepicker.css",
               "src/assets/plugins/fancybox/jquery.fancybox.min.css",
               "src/assets/css/style.css",
               "src/styles.css"
@@ -42,7 +43,8 @@
               "node_modules/bootstrap4-datetimepicker/build/js/bootstrap-datetimepicker.min.js",
               "src/assets/plugins/fancybox/jquery.fancybox.min.js",
               "node_modules/slick-carousel/slick/slick.min.js",
-              "node_modules/moment/dist/moment.js"
+              "node_modules/moment/dist/moment.js",
+              "node_modules/daterangepicker/daterangepicker.js"
             ]
           },
           "configurations": {
